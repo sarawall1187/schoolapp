@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root 'sessions#index'
+  get '/signup' => 'parents#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   resources :schools
   resources :teachers
   resources :children
