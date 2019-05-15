@@ -7,11 +7,11 @@ class ChildrenController < ApplicationController
     def create
         @child = Child.new(child_params)
         @child.parent_id = current_user.id
-        # @child.name = params[:child][:name]
-        # @child.age = params[:child][:age]
-        # @child.parent_id = params[:child][:parent_id]
-        @child.save   
+       if  @child.save   
         redirect_to parent_path(current_user)
+       else 
+        render :new
+       end
     end
 
 
