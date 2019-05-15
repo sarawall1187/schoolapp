@@ -1,3 +1,10 @@
-<%= @parent.email %>
+<h1><%= @parent.email %></h1>
+<h2><%= @parent.admin %></h2>
+<% binding.pry %>
+<%= @parent.children.each do |child| %>
+    <%= child.name %>
+    <%= child.age %>
+    <% end %>
 
-<%= link_to 'Log Out', logout_path, method: :delete %>
+<h3><%= link_to 'Register your Child', new_child_path %></h3>
+

@@ -4,5 +4,7 @@
     <%= f.text_field :email %>
     <%= f.label 'Password' %>
     <%= f.password_field :password %>
-    <%= f.submit %>
+    <%= f.label 'Are you an Admin?' %>
+    <%= f.check_box :admin %>
+    <%= f.submit 'Sign Up'%>
     <% end %>

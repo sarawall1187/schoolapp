@@ -3,13 +3,12 @@ class ParentsController < ApplicationController
     def new
         @parent = Parent.new
     end
+
     #signup
     def create 
         @parent = Parent.new(parent_params)
-        if @parent.save
-            
+        if @parent.save 
             session[:user_id] = @parent.id
-            binding.pry
             redirect_to @parent
         else 
             render :new
@@ -18,6 +17,7 @@ class ParentsController < ApplicationController
 
     def show 
         @parent = Parent.find(params[:id])
+        @child = Child.find_by(parent_id: params[:parent_id])
     end
 
 

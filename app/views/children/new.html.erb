@@ -1,0 +1,9 @@
+<h1>New Child Sign Up!</h1>
+<%= form_for @child do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <%= f.hidden_field :parent_id, value => 'current_user.id' %>
+    <%= f.submit 'Sign Up New Child'%>
+    <% end %>
