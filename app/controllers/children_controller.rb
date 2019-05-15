@@ -8,8 +8,9 @@ class ChildrenController < ApplicationController
         @child = Child.new
         @child.name = params[:child][:name]
         @child.age = params[:child][:age]
-        @child.parent_id = current_user.id
+        @child.parent_id = params[:child][:parent_id]
         @child.save
+        binding.pry
         
         redirect_to parent_path(current_user)
     end
