@@ -1,10 +1,11 @@
 <h1><%= @parent.email %></h1>
 <h2><%= @parent.admin %></h2>
-<% binding.pry %>
+
 <%= @parent.children.each do |child| %>
+    
     <%= child.name %>
     <%= child.age %>
     <% end %>
-
+    <% binding.pry %>
 <h3><%= link_to 'Register your Child', new_child_path %></h3>
 

@@ -9,6 +9,8 @@ class ChildrenController < ApplicationController
         @child.name = params[:child][:name]
         @child.age = params[:child][:age]
         @child.parent_id = current_user.id
+        @child.save
+        
         redirect_to parent_path(current_user)
     end
 
@@ -16,6 +18,6 @@ class ChildrenController < ApplicationController
     private 
 
     def child_params
-        params.require(:child).permit(:name, :age, :parent_id)
+        params.require(:child).permit(:name, :age, :parent_id, :teacher_id)
     end
 end
