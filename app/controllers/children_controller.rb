@@ -1,7 +1,7 @@
 class ChildrenController < ApplicationController
 
     def new
-        @child = Child.new
+          @child = Child.new 
     end
 
     def create
@@ -12,6 +12,10 @@ class ChildrenController < ApplicationController
        else 
         render :new
        end
+    end
+
+    def show 
+        @child = Child.find_by(id: params[:id])
     end
 
 

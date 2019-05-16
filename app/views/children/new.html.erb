@@ -4,6 +4,7 @@
     <%= f.text_field :name %>
     <%= f.label :age %>
     <%= f.number_field :age %>
-    <%= f.hidden_field :parent_id %>
+    <%= f.label "Choose what Grade your Child is entering:" %>
+    <%= f.collection_select :teacher_id, Teacher.all, :id, :grade_taught %>
     <%= f.submit 'Sign Up New Child'%>
     <% end %>

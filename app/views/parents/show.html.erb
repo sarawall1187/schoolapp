@@ -3,7 +3,7 @@
 <h3>Registered Children:</h3>
  <ul>
   <% @parent.children.each do |child| %> 
-    <li> <%= link_to "child.name, child.age", child_path(child)  %> </li>
+    <li> <%= link_to "#{child.name}, #{child.age}", child_path(child)  %> </li>
     <% end %>
     </ul>
 <h3><%= link_to 'Register your Child', new_child_path %></h3>
