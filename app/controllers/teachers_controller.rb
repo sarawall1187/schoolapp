@@ -16,4 +16,8 @@ class TeachersController < ApplicationController
            render :new
        end
    end
+
+   def show 
+        @teacher = Teacher.find_by_id(params[:id]) 
+   end
 end
