@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'sessions#index'
   get '/signup' => 'parents#new'
   get '/login' => 'sessions#new'
+  get '/auth/facebook/callback' => 'sessions#create'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :schools, only: [:show, :index] do

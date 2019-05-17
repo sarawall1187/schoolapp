@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_154638) do
+ActiveRecord::Schema.define(version: 2019_05_17_200743) do
 
   create_table "children", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_154638) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "uid", limit: 8
   end
 
   create_table "schools", force: :cascade do |t|
