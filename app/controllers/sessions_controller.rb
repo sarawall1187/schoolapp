@@ -8,14 +8,30 @@ class SessionsController < ApplicationController
 
     #login
     def create
-        # binding.pry
-      @parent = Parent.find_by(email: params[:parent][:email])
-      if @parent && @parent.authenticate(params[:parent][:password])
-        session[:user_id] = @parent.id
-        redirect_to parent_path(@parent)
+         #login with oauth
+        #  raise params.inspect
+      if auth 
+        #logged in previously
+       oauth_email = request.env['omniauth.auth']['info']['email']
+        if @parent = Parent.find_by(email: oauth_email)
+            session[:user_id] = @parent.id
+            redirect_to parent_path(@parent)
+        else
+            #logged in with FB first time
+            @parent = Parent.create(email: oauth_email, password: SecureRandom.hex)
+            session[:user_id] = @parent.id
+            redirect_to parent_path(@parent)
+        end
+        #normal login flow
       else
-        redirect_to login_path
-      end
+        @parent = Parent.find_by(email: params[:parent][:email])
+        if @parent && @parent.authenticate(params[:parent][:password])
+            session[:user_id] = @parent.id
+            redirect_to parent_path(@parent)
+        else
+            redirect_to login_path
+        end
+       end
     end
 
     #logout
@@ -25,7 +41,7 @@ class SessionsController < ApplicationController
     end
 
     private 
-    
+
     def auth
       request.env['omniauth.auth']
     end
