@@ -1,1 +1,7 @@
 <h1><%= @child.name %>'s" School Page</h1>
+
+<% if @child.teacher %>
+<h2><%= @child.teacher.name %> is <%= @child.name %>'s Teacher </h2>
+<% end %>
+
+<%= link_to 'Back to your Page', parent_path(@child.parent) %>

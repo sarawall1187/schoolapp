@@ -2,9 +2,9 @@
 <h2>Admin Status: <%= @parent.admin %></h2>
 <h3>Registered Children:</h3>
  <ul>
-  <% @parent.children.each do |child| %> 
+  <% @parent.children.each do |child| %>
     <li> <%= link_to "#{child.name}, #{child.age}", child_path(child)  %> </li>
     <% end %>
     </ul>
 <h3><%= link_to 'Register your Child', new_child_path %></h3>
-
+<h3><%= link_to 'Edit your Account', edit_parent_path %></h3>

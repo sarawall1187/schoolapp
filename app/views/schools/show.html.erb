@@ -1,5 +1,13 @@
 <h1><%= @school.name %></h1>
 
-<% if current_user.admin %>
-<%= link_to 'Add New Teacher', new_school_teacher_path %>
+<ul><% @school.teachers.each do |teacher| %>
+  <li> <%= teacher.name %>, <%= teacher.grade_taught %> </li>
+</ul>
 <% end %>
+
+
+<% if current_user.admin %>
+<%= link_to 'Add New Teacher', new_school_teacher_path(@school) %>
+<% end %>
+
+<p>*Want to link to parent show page from here*</p>
