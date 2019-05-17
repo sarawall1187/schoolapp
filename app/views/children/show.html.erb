@@ -4,4 +4,8 @@
 <h2><%= @child.teacher.name %> is <%= @child.name %>'s Teacher </h2>
 <% end %>
 
+<% if @child.parent == current_user %>
+<%= link_to 'Edit Childs Information', edit_child_path(@child) %>
+<% end %>
+
 <%= link_to 'Back to your Page', parent_path(@child.parent) %>

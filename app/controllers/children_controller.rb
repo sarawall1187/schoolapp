@@ -15,13 +15,31 @@ class ChildrenController < ApplicationController
     end
 
     def show 
-        @child = Child.find_by(id: params[:id])
+        set_child
     end
+
+    def edit
+        set_child
+    end
+
+    def update
+        set_child
+        @child.update(child_params)
+        @child.save
+        redirect_to @child
+
+    end
+
+
 
 
     private 
 
     def child_params
         params.require(:child).permit(:name, :age, :parent_id, :teacher_id)
+    end
+
+    def set_child
+        @child = Child.find_by(id: params[:id])
     end
 end
