@@ -5,26 +5,38 @@ class ParentsController < ApplicationController
     end
 
     #signup
-    def create 
+    def create
         @parent = Parent.new(parent_params)
-        if @parent.save 
+        if @parent.save
             session[:user_id] = @parent.id
             redirect_to @parent
-        else 
+        else
             render :new
         end
     end
 
-    def show 
+    def show
         @parent = Parent.find(params[:id])
         @child = Child.find_by(parent_id: params[:parent_id])
     end
 
+    def edit
+       @parent = Parent.find(params[:id])
+  end
+
+  def update
+
+      @parent = Parent.find(params[:id])
+
+      @parent.update(parent_params)
+      @parent.save
+      redirect_to @parent
+  end
 
 
 
 
-    private 
+    private
 
     def parent_params
         params.require(:parent).permit(:email, :password, :admin)

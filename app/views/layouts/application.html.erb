@@ -11,7 +11,9 @@
 
   <body>
   <h1>Welcome</h1>
-    <%= yield %>
-    <%= link_to 'Log Out', logout_path, method: :delete %>
+  <%= link_to 'Check your School Options', schools_path %>
+<%= yield %>
+<%= link_to 'Home Page', root_path %>
+<%= link_to 'Log Out', logout_path, method: :delete %>
   </body>
 </html>

@@ -1,10 +1,2 @@
 <h1>Register your Account </h1>
-<%= form_for @parent do |f| %>
-    <%= f.label 'Email' %>
-    <%= f.text_field :email %>
-    <%= f.label 'Password' %>
-    <%= f.password_field :password %>
-    <%= f.label 'Are you an Admin?' %>
-    <%= f.check_box :admin %>
-    <%= f.submit 'Sign Up'%>
-    <% end %>
+<%= render 'form' %>
