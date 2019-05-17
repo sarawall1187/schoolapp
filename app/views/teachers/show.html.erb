@@ -1,0 +1,4 @@
+<h1><%= @teacher.name %></h1>
+<h1><%= @teacher.grade_taught %></h1>
+<% @teacher.children.each do |child| %>
+<%= child.name %>
