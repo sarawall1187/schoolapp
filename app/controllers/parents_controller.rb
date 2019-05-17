@@ -1,5 +1,5 @@
 class ParentsController < ApplicationController
-
+    skip_before_action :require_login, only: [:new, :create]
     def new
         @parent = Parent.new
     end
@@ -16,27 +16,29 @@ class ParentsController < ApplicationController
     end
 
     def show
-        @parent = Parent.find(params[:id])
+        set_parent
         @child = Child.find_by(parent_id: params[:parent_id])
     end
 
     def edit
-       @parent = Parent.find(params[:id])
-  end
+       set_parent
+    end
 
-  def update
-
-      @parent = Parent.find(params[:id])
-
-      @parent.update(parent_params)
-      @parent.save
-      redirect_to @parent
-  end
+    def update
+        set_parent
+        @parent.update(parent_params)
+        @parent.save
+        redirect_to @parent
+    end
 
 
 
 
     private
+
+    def set_parent 
+        @parent = Parent.find(params[:id])
+    end
 
     def parent_params
         params.require(:parent).permit(:email, :password, :admin)
