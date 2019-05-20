@@ -1,8 +1,8 @@
 <%= form_for @child do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => (@child.errors.full_messages_for(:name).first) %>
     <%= f.label :age %>
-    <%= f.number_field :age %>
+    <%= f.number_field :age, :placeholder => (@child.errors.full_messages_for(:name).first) %>
     <%= f.label "Choose what Grade your Child is entering:" %>
     <%= f.collection_select :teacher_id, Teacher.all, :id, :grade_taught %>
     <%= f.submit %>

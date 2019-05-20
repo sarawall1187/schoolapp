@@ -1,8 +1,8 @@
 <h1>Add a Teacher</h1>
 <%= form_for [@school, @teacher] do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => (@teacher.errors.full_messages_for(:name).first) %>
     <%= f.label :grade_taught %>
-    <%= f.text_field :grade_taught %>
+    <%= f.text_field :grade_taught, :placeholder => (@teacher.errors.full_messages_for(:grade_taught).first) %>
     <%= f.submit %>
     <% end %>

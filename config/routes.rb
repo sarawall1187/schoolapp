@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get '/parents' => 'parents#new'
+  get '/children' => 'children#new'
+  get '/teachers' => 'teachers#new'
   resources :schools, only: [:show, :index] do
     resources :teachers
   end

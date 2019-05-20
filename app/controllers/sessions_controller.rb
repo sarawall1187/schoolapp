@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     def create
       #login with oauth
       if auth_hash 
-       @parent = Parent.find_or_create_by_omniauth(auth_hash)
+        @parent = Parent.find_or_create_by_omniauth(auth_hash)
         session[:user_id] = @parent.id
         redirect_to parent_path(@parent)
       #normal login flow
