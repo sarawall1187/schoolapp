@@ -1,7 +1,7 @@
 class TeachersController < ApplicationController
   def new
        if params[:school_id] && @school = School.find_by_id(params[:school_id])
-           @teacher = @school.teachers.build
+         @teacher = @school.teachers.build
        else
          @teacher = Teacher.new
        end
@@ -11,13 +11,19 @@ class TeachersController < ApplicationController
        @school = School.find_by_id(params[:school_id])
        @teacher = @school.teachers.build(teacher_params)
        if @teacher.save
-           redirect_to school_path(@teacher.school_id)
+           redirect_to school_path(@school)
        else
            render :new
        end
    end
 
    def show 
-        @teacher = Teacher.find_by_id(params[:id]) 
+     @teacher = Teacher.find_by_id(params[:id]) 
+   end
+
+   private 
+
+   def teacher_params
+     params.require(:teacher).permit(:name, :grade_taught, :school_id)
    end
 end

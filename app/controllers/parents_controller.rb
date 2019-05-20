@@ -18,6 +18,7 @@ class ParentsController < ApplicationController
     def show
         set_parent
         @child = Child.find_by(parent_id: params[:parent_id])
+        @parent.children.order_by_age
     end
 
     def edit

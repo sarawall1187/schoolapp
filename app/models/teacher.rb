@@ -5,4 +5,7 @@ class Teacher < ApplicationRecord
 
     validates :name, presence: true
     validates :grade_taught, presence: true
+
+    
+scope :order_by_grade, -> { order(grade_taught: :desc) }
 end

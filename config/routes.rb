@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get '/parents' => 'parents#new'
   get '/children' => 'children#new'
-  get '/teachers' => 'teachers#new'
+  # get '/teachers' => 'teachers#new'
+  # post '/teachers' => 'school#show'
   resources :schools, only: [:show, :index] do
-    resources :teachers, only: [:show, :new]
+    resources :teachers, only: [:show, :new, :create]
   end
+  resources :teachers, only: [:create]
 
   resources :children, only: [:new, :show, :create, :edit, :update]
   resources :parents, only: [:new, :show, :create, :edit, :update]
