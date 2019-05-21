@@ -10,10 +10,24 @@
   </head>
 
   <body>
-  <h1>Welcome</h1>
-  <%= link_to 'Check your School Options', schools_path %>
-<%= yield %>
-<%= link_to 'Home Page', root_path %>
-<%= link_to 'Log Out', logout_path, method: :delete %>
+  <h1>SCHOOL REGISTRATION</h1>
+  <nav>
+  <div class="nav-wrapper blue-grey darken-1">
+  
+  <ul>
+  <li><%= link_to 'Check your School Options', schools_path %></li>
+  <li><%= link_to 'Home Page', root_path %></li>
+  <li><%= link_to 'Signup', signup_path %></li>
+ <li> <%= link_to 'Login', login_path %></li>
+  <li><%= link_to('Log in with Facebook!', '/auth/facebook') %></li>
+  <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+  </div>
+</nav>
+  
+  <div class="container"> 
+    <%= yield %>
+   </div> 
+
+
   </body>
 </html>
