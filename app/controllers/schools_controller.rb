@@ -5,6 +5,6 @@ class SchoolsController < ApplicationController
 
    def show
        @school = School.find(params[:id])
-       @school.teachers.order_by_grade
+    #    @school.teachers.order_by_grade
    end
 end

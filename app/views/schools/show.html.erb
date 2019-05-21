@@ -1,7 +1,7 @@
 <h1><%= @school.name %></h1>
 
 <ul>
-  <% @school.teachers.each do |teacher| %>
+  <% @school.teachers.order_by_grade.each do |teacher| %>
    <li> <%= link_to teacher.name, school_teacher_path(@school, teacher) %>, <%= teacher.grade_taught %> </li>
   <% end %>
 </ul>
