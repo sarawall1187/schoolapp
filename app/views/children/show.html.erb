@@ -5,10 +5,10 @@
 <% end %>
 
 <% if @child.parent == current_user %>
-<%= link_to 'Edit Childs Information', edit_child_path(@child) %>
+<%= button_to 'Edit Childs Information', edit_child_path(@child), method: "get" %>
 <% end %>
 <%= form_tag child_path(@child.id), method: "delete" do %>
-    <%= submit_tag "Delete this Informations" %>
+    <%= submit_tag "Delete Childs Information" %>
   <% end %>
 
-<%= link_to 'Back to your Page', parent_path(@child.parent) %>
+<%= button_to 'Back to your Account Page', parent_path(@child.parent), method: "get" %>

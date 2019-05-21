@@ -6,8 +6,8 @@
     <li> <%= link_to "#{child.name}, #{child.age}", child_path(child)  %> </li>
     <% end %>
     </ul>
-<h3><%= link_to 'Register your Child', new_child_path %></h3>
-<h3><%= link_to 'Edit your Account', edit_parent_path %></h3>
+<%= button_to 'Register your Child', new_child_path, method: "get" %>
+<%= button_to 'Edit your Account', edit_parent_path, method: "get" %>
 
 <%= form_tag parent_path(@parent.id), method: "delete" do %>
   <%= submit_tag "Delete your Account" %>
