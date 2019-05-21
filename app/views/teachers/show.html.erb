@@ -1,10 +1,10 @@
 <h1><%= @teacher.name %> teaches <%= @teacher.grade_taught %> grade</h1>
 <h1></h1>
 <h2>Children in <%="#{@teacher.name}"%>'s Class: </h2>
-<ul>
+<ol>
  <% @teacher.children.each do |child| %>
   <li><%= link_to child.name, child_path(child)  %></li>
  <% end %>
-</ul>
+</ol>
 
 <%= button_to 'Back to your Page', parent_path(current_user), method: "get" %>
