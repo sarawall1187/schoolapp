@@ -5,5 +5,5 @@ class Child < ApplicationRecord
     validates :name, presence: true
     validates :age, presence: true
 
-    scope :order_by_age, -> { order(age: :desc) }
+    scope :order_by_age, -> { order(age: :asc) }
 end

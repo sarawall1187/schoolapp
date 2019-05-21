@@ -1,4 +1,4 @@
-<h1><%= @child.name %>'s" School Page</h1>
+<h1><%= @child.name %>'s School Page</h1>
 
 <% if @child.teacher %>
 <h2><%= @child.teacher.name %> is <%= @child.name %>'s Teacher </h2>
@@ -7,5 +7,8 @@
 <% if @child.parent == current_user %>
 <%= link_to 'Edit Childs Information', edit_child_path(@child) %>
 <% end %>
+<%= form_tag child_path(@child.id), method: "delete" do %>
+    <%= submit_tag "Delete this Informations" %>
+  <% end %>
 
 <%= link_to 'Back to your Page', parent_path(@child.parent) %>

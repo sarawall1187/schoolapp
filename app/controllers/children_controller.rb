@@ -27,12 +27,13 @@ class ChildrenController < ApplicationController
         @child.update(child_params)
         @child.save
         redirect_to @child
-
     end
 
-
-
-
+    def destroy
+        set_child.destroy
+        redirect_to parent_path(@child.parent_id)
+    end
+    
     private 
 
     def child_params

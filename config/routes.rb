@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :teachers, only: [:create]
 
-  resources :children, only: [:new, :show, :create, :edit, :update]
-  resources :parents, only: [:new, :show, :create, :edit, :update]
+  resources :children, only: [:new, :show, :create, :edit, :update, :destroy]
+  resources :parents, only: [:new, :show, :create, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

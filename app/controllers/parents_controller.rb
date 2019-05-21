@@ -1,5 +1,6 @@
 class ParentsController < ApplicationController
     skip_before_action :require_login, only: [:new, :create]
+    
     def new
         @parent = Parent.new
     end
@@ -31,6 +32,12 @@ class ParentsController < ApplicationController
         @parent.save
         redirect_to @parent
     end
+
+    def destroy
+        set_parent.destroy
+        redirect_to root_path
+    end
+
 
 
 
