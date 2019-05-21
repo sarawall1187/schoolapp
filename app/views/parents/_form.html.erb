@@ -3,7 +3,12 @@
     <%= f.text_field :email, :placeholder => (@parent.errors.full_messages_for(:email).first) %>
     <%= f.label 'Password' %>
     <%= f.password_field :password, :placeholder => (@parent.errors.full_messages_for(:password).first)%>
-    <%= f.label :admin, 'Are you an Admin?' %> 
-    <%= f.check_box :admin %> <br>
+    <%= f.label :admin, for: "admin_checkbox" do %>      
+      <%= f.check_box :admin, id: "admin_checkbox" %> 
+      <%= content_tag(:span, 'Are you an Admin?') %> 
+     <% end %> 
+     <br>
+ <br>
     <%= f.submit %>
     <% end %>
+   
