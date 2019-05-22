@@ -20,8 +20,9 @@
      font-size: 2em;
  }
 
-
- div#background {
-     background: url("/schoolapp/app/assets/images/book-with-green-board-background_1150-3837.jpg");
- }
+ html {
+    background-image: url('book-with-green-board-background_1150-3837.jpg') ;
+    background-repeat: no-repeat, repeat;
+    height: auto;
+}
 

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     #login
     def create
-      #login with oauth
+      #login with omniauth
       if auth_hash 
         @parent = Parent.find_or_create_by_omniauth(auth_hash)
         session[:user_id] = @parent.id
