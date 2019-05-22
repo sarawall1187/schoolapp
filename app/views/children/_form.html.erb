@@ -5,7 +5,7 @@
     <%= f.number_field :age, :placeholder => (@child.errors.full_messages_for(:age).first) %>
     <%= f.label "Choose what Grade your Child is entering:", for: :child_teacher_id %>
     <%= content_tag :div, class: "input-field" do %>
-    <%= f.collection_select :teacher_id, Teacher.all.order_by_grade, :id, :grade_taught %> 
+    <%= f.collection_select :teacher_id, Teacher.all.order_by_grade, :id, :name_and_grade %> 
     <% end %>
     <%= f.submit %>
     <% end %>

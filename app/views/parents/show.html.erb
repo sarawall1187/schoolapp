@@ -3,7 +3,7 @@
 <h4>Registered Children:</h4>
  <ol>
    <% @parent.children.order_by_age.each do |child| %>
-     <li> <%= link_to "#{child.name}, #{child.age}", child_path(child)  %> </li>
+     <li> <%= link_to "#{child.name}, #{child.age}", child_path(child)%> is in <%= link_to child.teacher.name, teacher_path(child.teacher_id) %>'s class. </li>
    <% end %>
   </ol>
 

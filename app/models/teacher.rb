@@ -8,4 +8,8 @@ class Teacher < ApplicationRecord
 
     scope :order_by_grade, -> { order(grade_taught: :asc) }
 
+    def name_and_grade
+        "#{self.name}, #{self.grade_taught.ordinalize}"
+    end
+
 end
