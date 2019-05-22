@@ -1,14 +1,15 @@
-<h1><%= @child.name %>'s School Page</h1>
+<h2><%= @child.name %>'s School Page</h2>
 
 <% if @child.teacher %>
-<h2><%= @child.teacher.name %> is <%= @child.name %>'s Teacher </h2>
+  <h4><%= link_to @child.teacher.name, teacher_path(@child.teacher_id) %> is <%= @child.name %>'s <%= @child.teacher.grade_taught.ordinalize %> grade Teacher </h4>
 <% end %>
 
 <% if @child.parent == current_user %>
-<%= button_to 'Edit Childs Information', edit_child_path(@child), method: "get" %>
+  <%= button_to 'Edit Childs Information', edit_child_path(@child), method: "get" %>
 <% end %>
+
 <%= form_tag child_path(@child.id), method: "delete" do %>
     <%= submit_tag "Delete Childs Information" %>
-  <% end %>
+<% end %>
 
 <%= button_to 'Back to your Account Page', parent_path(@child.parent), method: "get" %>

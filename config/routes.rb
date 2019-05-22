@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :schools, only: [:show, :index] do
     resources :teachers, only: [:show, :new, :create]
   end
-  resources :teachers, only: [:create]
+  resources :teachers, only: [:create, :show]
 
   resources :children, only: [:new, :show, :create, :edit, :update, :destroy]
   resources :parents, only: [:new, :show, :create, :edit, :update, :destroy]

@@ -1,6 +1,7 @@
 <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
   <% end %>
+
 <h1>Login</h1>
 <%= form_for @parent, url: '/login' do |f| %>
     <%= f.label 'Email' %>
@@ -8,4 +9,4 @@
     <%= f.label 'Password' %>
     <%= f.password_field :password %>
     <%= f.submit 'Login' %>
-    <% end %>
+ <% end %>

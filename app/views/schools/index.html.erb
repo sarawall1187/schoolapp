@@ -1,7 +1,7 @@
 <ul>
-<% @schools.each do |school| %>
+  <% @schools.each do |school| %>
     <li><%= link_to school.name, school_path(school) %></li>
-    <% end %>
-    </ul>
+  <% end %>
+</ul>
 
-    <%= link_to 'Back to your Page', parent_path(current_user) %>
+<%= link_to 'Back to your Page', parent_path(current_user) %>

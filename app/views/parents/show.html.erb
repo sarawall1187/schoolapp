@@ -1,16 +1,18 @@
 <h2>Account Login: <%= @parent.email %></h2>
-<h2>Admin Status: <%= @parent.admin %></h2>
-<h3>Registered Children:</h3>
+<h3>Admin Status: <%= @parent.admin %></h3>
+<h4>Registered Children:</h4>
  <ol>
-  <% @parent.children.order_by_age.each do |child| %>
-    <li> <%= link_to "#{child.name}, #{child.age}", child_path(child)  %> </li>
-    <% end %>
-    </ol>
-    <div class="row">
-<%= button_to 'Register your Child', new_child_path, method: "get" %>
-<%= button_to 'Edit your Account', edit_parent_path, method: "get" %>
+   <% @parent.children.order_by_age.each do |child| %>
+     <li> <%= link_to "#{child.name}, #{child.age}", child_path(child)  %> </li>
+   <% end %>
+  </ol>
 
-<%= form_tag parent_path(@parent.id), method: "delete" do %>
-  <%= submit_tag "Delete your Account" %>
-<% end %>
+<div class="row">
+  <%= button_to 'Register your Child', new_child_path, method: "get" %>
+  <%= button_to 'Edit your Account', edit_parent_path, method: "get" %>
+ 
+  <%= form_tag parent_path(@parent.id), method: "delete" do %>
+   <%= submit_tag "Delete your Account" %>
+  <% end %>
 </div>
+

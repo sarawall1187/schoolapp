@@ -2,7 +2,7 @@
 
 <ul>
   <% @school.teachers.order_by_grade.each do |teacher| %>
-   <li> <%= link_to teacher.name, school_teacher_path(@school, teacher) %>, <%= teacher.grade_taught %> </li>
+   <li>Name: <%= link_to teacher.name, school_teacher_path(@school, teacher) %>, Grade: <%= teacher.grade_taught %> </li>
   <% end %>
 </ul>
 
@@ -12,4 +12,4 @@
 <% end %>
 
 <%= button_to 'Go Back to your Account Page', parent_path(current_user), method: "get" %>
-<!-- <p>*Want to link to parent show page from here*</p> -->
+
