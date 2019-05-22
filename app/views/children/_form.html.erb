@@ -2,7 +2,7 @@
     <%= f.label :name %>
     <%= f.text_field :name, :placeholder => (@child.errors.full_messages_for(:name).first) %>
     <%= f.label :age %>
-    <%= f.number_field :age, :placeholder => (@child.errors.full_messages_for(:name).first) %>
+    <%= f.number_field :age, :placeholder => (@child.errors.full_messages_for(:age).first) %>
     <%= f.label "Choose what Grade your Child is entering:", for: :child_teacher_id %>
     <%= content_tag :div, class: "input-field" do %>
     <%= f.collection_select :teacher_id, Teacher.all.order_by_grade, :id, :grade_taught %> 

@@ -1,4 +1,4 @@
-<h1><%= @teacher.name %> teaches <%= @teacher.grade_taught %> grade</h1>
+<h1><%= @teacher.name %> teaches <%= @teacher.grade_taught.ordinalize %> grade</h1>
 <h1></h1>
 <h2>Children in <%="#{@teacher.name}"%>'s Class: </h2>
 <ol>

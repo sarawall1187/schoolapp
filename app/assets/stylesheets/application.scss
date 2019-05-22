@@ -15,7 +15,14 @@
  */
  @import "materialize";
 
- 
+
  li {
      font-size: 3em;
  }
+
+
+ body {
+     background-image: url(../assets/images/book-with-green-board-background_1150-3837.jpg) ;
+ }
+
+ $body-bg: transparent; 
