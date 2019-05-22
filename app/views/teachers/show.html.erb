@@ -3,7 +3,8 @@
 <h4>Children in <%="#{@teacher.name}"%>'s Class: </h4>
 <ol>
  <% @teacher.children.each do |child| %>
-  <li><%= link_to child.name, child_path(child)  %></li>
+  <li>Name: <%= link_to child.name, child_path(child)  %>, Emergency Contact: <%= link_to child.parent.email, parent_path(child.parent_id) %></li>
+
  <% end %>
 </ol>
 
