@@ -21,8 +21,7 @@
  }
 
 
- body {
-     background-image: url(../assets/images/book-with-green-board-background_1150-3837.jpg) ;
+ div#background {
+     background: url("/schoolapp/app/assets/images/book-with-green-board-background_1150-3837.jpg");
  }
 
- $body-bg: transparent; 
