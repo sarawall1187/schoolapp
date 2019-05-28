@@ -21,6 +21,10 @@ class TeachersController < ApplicationController
      @teacher = Teacher.find_by_id(params[:id]) 
    end
 
+   def index
+     @teachers = Teacher.order_by_name 
+   end
+
    private 
 
    def teacher_params

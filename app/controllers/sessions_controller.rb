@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @parent.id
             redirect_to parent_path(@parent)
          else
+          flash[:msg] = "Please fill out all fields."
             redirect_to login_path
          end
        end

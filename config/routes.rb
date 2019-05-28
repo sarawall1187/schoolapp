@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get '/parents' => 'parents#new'
   get '/children' => 'children#new'
   resources :schools, only: [:show, :index] do
-    resources :teachers, only: [:show, :new, :create]
+    resources :teachers, only: [:show, :new, :create] 
   end
-  resources :teachers, only: [:create, :show]
+  resources :teachers, only: [:create, :show, :index]
 
   resources :children, only: [:new, :show, :create, :edit, :update, :destroy]
   resources :parents, only: [:new, :show, :create, :edit, :update, :destroy]

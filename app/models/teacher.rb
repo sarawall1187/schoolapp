@@ -7,6 +7,7 @@ class Teacher < ApplicationRecord
     validates :grade_taught, presence: true
 
     scope :order_by_grade, -> { order(grade_taught: :asc) }
+    scope :order_by_name, -> { order(name: :asc) }
 
     def name_and_grade
         "#{self.name}, #{self.grade_taught.ordinalize} grade"
