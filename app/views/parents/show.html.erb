@@ -1,3 +1,4 @@
+<% if @parent == current_user %>
 <h2>Account Login: <%= @parent.email %></h2>
 <h3>Admin Status: <%= @parent.admin %></h3>
 <h4>Registered Children:</h4>
@@ -15,4 +16,6 @@
    <%= submit_tag "Delete your Account" %>
   <% end %>
 </div>
-
+<% else %>
+<h3>You do not have access to this page.</h3>
+<% end %>
