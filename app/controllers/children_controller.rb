@@ -1,7 +1,8 @@
 class ChildrenController < ApplicationController
 
     def new
-          @child = Child.new 
+        @child = Child.new 
+        @teachers = Teacher.all.order_by_grade
     end
 
     def create
