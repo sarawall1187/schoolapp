@@ -15,9 +15,12 @@
 //= require turbolinks
 //= require_tree .
 //= require materialize
+//= require teachers
+
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
   });
+
 
      

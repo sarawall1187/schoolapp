@@ -1,3 +1,5 @@
-<% @teachers.each do |teacher| %>
-<%= teacher.name %>
-<% end %>
+<ul>
+  <% @teachers.each do |teacher| %>
+   <li>Name: <%= link_to teacher.name, teacher_path(teacher) %>, Grade: <%= teacher.grade_taught %> </li>
+  <% end %>
+</ul> 

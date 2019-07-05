@@ -22,7 +22,12 @@ class TeachersController < ApplicationController
    end
 
    def index
-     @teachers = Teacher.order_by_name 
+     @school = School.find_by_id(params[:school_id])
+     @teachers = @school.teachers.order_by_grade 
+     respond_to do |f|
+      f.html 
+      f.json {render json: @teachers}
+     end
    end
 
    private 
