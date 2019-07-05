@@ -1,5 +1,6 @@
 class ParentsController < ApplicationController
     skip_before_action :require_login, only: [:new, :create]
+    before_action :set_parent, only: [:show, :edit, :update, :destroy]
     
     def new
         @parent = Parent.new
@@ -23,18 +24,16 @@ class ParentsController < ApplicationController
     end
 
     def edit
-       set_parent
     end
 
     def update
-        set_parent
         @parent.update(parent_params)
         @parent.save
         redirect_to @parent
     end
 
     def destroy
-        set_parent.destroy
+        @parent.destroy
         redirect_to root_path
     end
 

@@ -1,4 +1,5 @@
 class ChildrenController < ApplicationController
+    before_action :set_child, only: [:show, :edit, :update, :destroy]
 
     def new
         @child = Child.new 
@@ -16,22 +17,20 @@ class ChildrenController < ApplicationController
     end
 
     def show 
-        set_child
     end
 
     def edit
-        set_child
+        @teachers = Teacher.all.order_by_grade
     end
 
     def update
-        set_child
         @child.update(child_params)
         @child.save
         redirect_to @child
     end
 
     def destroy
-        set_child.destroy
+        @child.destroy
         redirect_to parent_path(@child.parent_id)
     end
     
