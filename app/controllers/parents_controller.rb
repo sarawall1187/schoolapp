@@ -1,6 +1,6 @@
 class ParentsController < ApplicationController
     skip_before_action :require_login, only: [:new, :create]
-    before_action :set_parent, only: [:show, :edit, :update, :destroy]
+    before_action :set_parent, only: [:edit, :update, :destroy]
     
     def new
         @parent = Parent.new
@@ -21,6 +21,7 @@ class ParentsController < ApplicationController
         set_parent
         @child = Child.find_by(parent_id: params[:parent_id])
         @parent.children.order_by_age
+        # @child.order_by_age
     end
 
     def edit
