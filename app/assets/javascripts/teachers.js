@@ -1,13 +1,9 @@
 $(() => {
     clickEventHandlers()
 })
-// $(document).ready(function() {
-//     clickEventHandlers()
-//   })
 
 const clickEventHandlers = () => {
-   $("#teachers").on('click' (e) => {
-        alert("hello")  
+   $("#teachers").on('click', (e) => {
         e.preventDefault()  
     })
 }

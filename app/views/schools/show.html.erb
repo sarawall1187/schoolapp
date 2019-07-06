@@ -2,7 +2,7 @@
 
 <div id="all_teachers"></div>
 
-<%= button_to('Show All Teachers', school_teachers_path(@school), method: "get", id: "teachers", javascript: "clickEventHandlers()") %>
+<button id="teachers">Show All Teachers</button>
 
 <% if current_user.admin %>
   <%= button_to 'Add New Teacher', new_school_teacher_path(@school), method: "get" %>
