@@ -5,7 +5,8 @@ $(() => {
 const clickEventHandlers = () => {
    $("#teachers").on('click', (e) => {
       e.preventDefault()  
-        fetch(`${this}/teachers.json`)
+      
+        fetch(`${this}.json`)
             .then(res => res.json())
             .then(teachers => {
                 teachers.forEach((teacher) => {
@@ -30,8 +31,8 @@ function Teacher(teacher){
 Teacher.prototype.formatIndex = function() {
     let teacherHTML = `
     <ul>
-   <li> <a>${this.name}, ${this.grade_taught}</a></li>
-   </ul>
+     <li> <a>${this.name}, ${this.grade_taught}</a></li>
+    </ul>
     `
     return teacherHTML
 }
