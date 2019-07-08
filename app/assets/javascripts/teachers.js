@@ -6,7 +6,7 @@ const clickEventHandlers = () => {
    $("#teachers").on('click', (e) => {
       e.preventDefault()  
       
-        fetch(`${this}.json`)
+        fetch(`/schools/${this}.json`)
             .then(res => res.json())
             .then(teachers => {
                 teachers.forEach((teacher) => {

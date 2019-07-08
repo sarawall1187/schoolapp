@@ -22,15 +22,7 @@ class TeachersController < ApplicationController
    end
 
    def index
-    #  @school = School.find_by_id(params[:id])
-     @teachers = Teacher.all  
-      # binding.pry
-    #  @teachers.each do |teacher|
-    #    if teacher.school_id == @school.id 
-    #     teacher
-    #    end
-    #  end
-    
+     @teachers = Teacher.all   
      respond_to do |f|
       f.html 
       f.json {render json: @teachers.order_by_grade}

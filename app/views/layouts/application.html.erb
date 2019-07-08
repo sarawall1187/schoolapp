@@ -23,7 +23,7 @@
       <li> <%= link_to 'Login', login_path %></li>
       <li><%= link_to('Login with Facebook', '/auth/facebook') %></li>
       <% elsif current_user %>  
-      <li><%= link_to 'Check your School Options', schools_path %></li>
+      <li><%= link_to 'Check your School Options', schools_path, id: "all_schools" %></li>
       <li><%= link_to 'Back to Signup', root_path %></li> 
       <li><%= link_to 'Your Home Page', parent_path(current_user) %></li>
       <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
@@ -33,8 +33,10 @@
     </div>
   </nav>
   
-  <div id="background" class="container"> 
-    <%= yield %>
+  <div id="background schools-container" class="container"> 
+  
+     <%= yield %>
+   
    </div> 
 
 

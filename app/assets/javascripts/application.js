@@ -18,6 +18,7 @@
 //= require_tree .
 //= require materialize
 //= require teachers
+//= require schools
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
