@@ -2,6 +2,7 @@ class SchoolsController < ApplicationController
     
   def index
        @schools = School.all
+      
        respond_to do |f|
         f.html 
         f.json {render json: @schools}
