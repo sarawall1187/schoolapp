@@ -15,7 +15,7 @@ class SchoolsController < ApplicationController
        @teachers = @school.teachers.order_by_grade  
        respond_to do |f|
         f.html 
-        f.json {render json: @teachers}
+        f.json {render json: @school}
        end
    end
 end
