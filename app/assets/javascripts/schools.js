@@ -47,9 +47,20 @@ School.prototype.formatIndex = function() {
 }
 
 School.prototype.formatShow = function() {
+    let teacherName = this.teachers.map(teacher => {
+        if (teacher.name !== null){
+      return `<li>${teacher.name}</li>` 
+    }})
     let schoolHTML = `
     <h1>${this.name}</h1>
     <h3>Established: ${this.created_at}</h3>
+   
+  
+    <h3>Faculty:</h3>
+    <ul> 
+    ${teacherName.join('')} 
+    </ul>
     `
     return schoolHTML
+
 }

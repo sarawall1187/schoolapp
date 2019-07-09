@@ -1,8 +1,7 @@
 class SchoolsController < ApplicationController
     
   def index
-       @schools = School.all
-      
+       @schools = School.all   
        respond_to do |f|
         f.html 
         f.json {render json: @schools}
@@ -12,10 +11,11 @@ class SchoolsController < ApplicationController
 
    def show
        @school = School.find(params[:id]) 
-       @teachers = @school.teachers.order_by_grade  
+       @teacher = @school.teachers.build
+         
        respond_to do |f|
         f.html 
-        f.json {render json: @school}
+        f.json {render json: @school, include: [:teachers]}
        end
    end
 end
