@@ -4,6 +4,11 @@
     <%= f.text_field :name, :placeholder => (@teacher.errors.full_messages_for(:name).first) %>
     <%= f.label :grade_taught %>
     <%= f.text_field :grade_taught, :placeholder => (@teacher.errors.full_messages_for(:grade_taught).first) %>
-    <%# <%= hidden_field_tag 'school_id', @school.id %> %>
-    <%= f.submit :id => "create_teacher" %>
+    <% if @school %>
+       <%= hidden_field_tag 'school_id', @school.id %>
+    <% else %>
+       <%= label_tag 'Choose School:' %>
+       <%= collection_select(:school, :id, School.all, :id, :name) %> 
+    <% end %>
+   <%= f.submit %>
 <% end %>

@@ -26,20 +26,10 @@ const clickEventSchool = () => {
              let schoolHTML = newSchool.formatShow()
              $('#schools-container').append(schoolHTML)
         })
-    })
+     })
 
-    $(document).on('click', '#add_teacher', function(e){
-        
-     $.get('/teachers/new', function(){
-        return $('#new_teacher').html("<%= j (render: 'teachers/new') %>")
-          })   
-      })
 
-      $('#create_teacher').on('submit', function(e){
-          e.preventDefault()
-          alert('hijacked')
-      })
-    }
+}
 
 
 function School(school){
