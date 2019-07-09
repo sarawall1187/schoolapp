@@ -4,6 +4,7 @@ class TeachersController < ApplicationController
          @teacher = @school.teachers.build
        else
          @teacher = Teacher.new
+         
        end
    end
 
@@ -11,7 +12,8 @@ class TeachersController < ApplicationController
        @school = School.find_by_id(params[:school_id])
        @teacher = @school.teachers.build(teacher_params)
        if @teacher.save
-           redirect_to school_path(@school)
+          #  redirect_to school_path(@school)
+          render json: @teacher
        else
            render :new
        end

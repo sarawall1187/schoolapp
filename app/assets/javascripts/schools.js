@@ -28,7 +28,19 @@ const clickEventSchool = () => {
         })
     })
 
-}
+    $(document).on('click', '#add_teacher', function(e){
+        
+     $.get('/teachers/new', function(){
+        return $('#new_teacher').html("<%= j (render: 'teachers/new') %>")
+          })   
+      })
+
+      $('#create_teacher').on('submit', function(e){
+          e.preventDefault()
+          alert('hijacked')
+      })
+    }
+
 
 function School(school){
     this.id = school.id
@@ -60,6 +72,7 @@ School.prototype.formatShow = function() {
     <ul> 
     ${teacherName.join('')} 
     </ul>
+    <a id="add_teacher" href="teachers/new">Hire A New Teacher</a>
     `
     return schoolHTML
 

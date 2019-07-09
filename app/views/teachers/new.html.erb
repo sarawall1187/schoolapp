@@ -1,9 +1,9 @@
 <h1>Add a Teacher</h1>
-<%= form_for @teacher do |f| %>
+<%= form_for @teacher, html:{id: 'new_teacher'} do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, :placeholder => (@teacher.errors.full_messages_for(:name).first) %>
     <%= f.label :grade_taught %>
     <%= f.text_field :grade_taught, :placeholder => (@teacher.errors.full_messages_for(:grade_taught).first) %>
-    <%= hidden_field_tag 'school_id', @school.id %>
-    <%= f.submit %>
+    <%# <%= hidden_field_tag 'school_id', @school.id %> %>
+    <%= f.submit :id => "create_teacher" %>
 <% end %>
