@@ -13,8 +13,8 @@ const clickEventHandlers = () => {
     $('#new_teacher').on('submit', function(e){
             e.preventDefault()
             const values = $(this).serialize()
-            $.post('/teachers', values)
-            .done(function(data){
+            // console.log(values)
+            $.post('/teachers', values).done(function(data) {
                 console.log(data)
             })
      })

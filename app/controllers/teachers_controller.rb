@@ -8,23 +8,15 @@ class TeachersController < ApplicationController
    end
 
    def create
-    if params[:school_id]
-       @school = School.find_by_id(params[:school_id])
+       @school = School.find_by_id(params[:school][:id])
        @teacher = @school.teachers.build(teacher_params)
-      else
-        @teacher = Teacher.new(teacher_params)
-      # binding.pry
-      end
        if @teacher.save
-        respond_to do |f|
-          f.html 
-          f.json {render json: @teacher}
-        end
-          #  redirect_to school_path(@school)
-       else
-           render :new
-       end
-     
+        render json: @teacher
+        # respond_to do |f|
+        #   f.html 
+        #   f.json {render json: @teacher}
+        # end
+       end  
    end
 
    def show 
