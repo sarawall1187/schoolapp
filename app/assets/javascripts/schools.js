@@ -51,7 +51,7 @@ School.prototype.formatIndex = function() {
 School.prototype.formatShow = function() {
     let teacherName = this.teachers.map(teacher => {
         if (teacher.name !== null){
-      return `<li>${teacher.name}</li>` 
+      return `<li>${teacher.name}, Grade: ${teacher.grade_taught} </li>` 
     }})
     let schoolHTML = `
     <h1>${this.name}</h1>

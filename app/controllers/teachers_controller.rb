@@ -12,10 +12,6 @@ class TeachersController < ApplicationController
        @teacher = @school.teachers.build(teacher_params)
        if @teacher.save
         render json: @teacher
-        # respond_to do |f|
-        #   f.html 
-        #   f.json {render json: @teacher}
-        # end
        end  
    end
 

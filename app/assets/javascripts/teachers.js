@@ -15,24 +15,13 @@ const clickEventHandlers = () => {
             const values = $(this).serialize()
             // console.log(values)
             $.post('/teachers', values).done(function(data) {
-                console.log(data)
+               $('#schools-container').html('')
+               let newTeacher = new Teacher(data)
+               let teacherHTML = newTeacher.formatShow()
+               $('#schools-container').append(teacherHTML)
             })
      })
-   
-//    $("#teachers").on('click', (e) => {
-//       e.preventDefault()  
-//     //   history.pushState(null, null, "teachers")
-//         fetch(`${this}.json`)
-//             .then(res => res.json())
-//             .then(teachers => {
-//                 teachers.forEach((teacher) => {
-//                     let newTeacher = new Teacher(teacher)
-//                     let teacherHTML = newTeacher.formatIndex()
-//                     $('#all_teachers').append(teacherHTML)
-//                 })
-//             })
 
-//     })
 }
 
 
@@ -44,11 +33,10 @@ function Teacher(teacher){
     this.children = teacher.children
 }
 
-Teacher.prototype.formatIndex = function() {
+Teacher.prototype.formatShow = function() {
     let teacherHTML = `
-    <ul>
-     <li> <a>${this.name}, ${this.grade_taught}</a></li>
-    </ul>
+    <h1>Welcome aboard ${this.name}!</h1>
+    <a href="/schools/${this.school_id}">Return to school page</a>
     `
     return teacherHTML
 }
