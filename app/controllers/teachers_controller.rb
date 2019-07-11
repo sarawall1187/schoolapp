@@ -23,7 +23,7 @@ class TeachersController < ApplicationController
      @teachers = Teacher.all   
      respond_to do |f|
       f.html 
-      f.json {render json: @teachers.order_by_grade}
+      f.json {render json: @teachers}
      end
    end
 

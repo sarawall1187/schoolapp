@@ -1,4 +1,6 @@
-
+$(() => {
+    clickEventSchool()
+})
 const clickEventSchool = () => {
     $("#all_schools").on('click', (e) => {
         e.preventDefault() 

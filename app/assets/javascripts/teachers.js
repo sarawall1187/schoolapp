@@ -1,9 +1,8 @@
 $(() => {
-    clickEventHandlers()
-    clickEventSchool()
+    clickEventTeachers()
 })
 
-const clickEventHandlers = () => {
+const clickEventTeachers = () => {
     $(document).on('click', '#add_teacher', function(e){     
         $.get('/teachers/new', function(){
            $('#new_teacher').html("<%= j (render: 'teachers/new') %>")
