@@ -10,6 +10,7 @@ class TeachersController < ApplicationController
    def create
        @school = School.find_by_id(params[:school][:id])
        @teacher = @school.teachers.build(teacher_params)
+       
        if @teacher.save
         render json: @teacher
        end  
@@ -20,7 +21,8 @@ class TeachersController < ApplicationController
    end
 
    def index
-     @teachers = Teacher.all   
+     @teachers = Teacher.all.order_by_grade   
+
      respond_to do |f|
       f.html 
       f.json {render json: @teachers}

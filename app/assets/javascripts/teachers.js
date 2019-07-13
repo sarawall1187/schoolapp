@@ -23,8 +23,8 @@ const clickEventTeachers = () => {
 
 }
 
-
-function Teacher(teacher){
+class Teacher {
+   constructor(teacher){
     this.id = teacher.id
     this.name = teacher.name
     this.grade_taught = teacher.grade_taught
@@ -32,15 +32,15 @@ function Teacher(teacher){
     this.children = teacher.children
 }
 
-Teacher.prototype.formatShow = function() {
+  formatShow() {
     let teacherHTML = `
     <h1>Welcome aboard ${this.name}!</h1>
     <a href="/schools/${this.school_id}">Return to school page</a>
     `
     return teacherHTML
-}
+  }
     
-
+}
 
 
 

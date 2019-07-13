@@ -33,30 +33,32 @@ const clickEventSchool = () => {
 
 }
 
+class School {
 
-function School(school){
+  constructor(school){
     this.id = school.id
     this.name = school.name
     this.teachers = school.teachers
     this.created_at = school.created_at
-} 
+  } 
 
-School.prototype.formatIndex = function() {
+  formatIndex() {
     let schoolHTML = `
     <ul>
      <li> <a href="/schools/${this.id}" data-id="${this.id}" id="show_link"> ${this.name}</a></li>
     </ul>
     `
     return schoolHTML
-}
+  }
 
-School.prototype.formatShow = function() {
+  formatShow() {
     let teacherName = this.teachers.map(teacher => {
+
         if (teacher.name !== null){
       return `<li>${teacher.name}, Grade: ${teacher.grade_taught} </li>` 
     }})
     let schoolHTML = `
-    <h1>${this.name}</h1>
+    <h1>Welcome to ${this.name}</h1>
     <h3>Established: ${this.created_at}</h3>
    
   
@@ -68,4 +70,5 @@ School.prototype.formatShow = function() {
     `
     return schoolHTML
 
+   }
 }
