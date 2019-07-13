@@ -53,16 +53,16 @@ class School {
 
   formatShow() {
     this.teachers.sort(function(a,b) {return a.grade_taught - b.grade_taught})
+    let date = new Date(this.created_at)
+    
     let teacherName = this.teachers.map(teacher => {
-
         if (teacher.name !== null){
       return `<li>${teacher.name}, Grade: ${teacher.grade_taught} </li>` 
     }})
     let schoolHTML = `
     <h1>Welcome to ${this.name}</h1>
-    <h3>Established: ${this.created_at}</h3>
+    <h3>Established: ${date.getUTCFullYear()}</h3>
    
-  
     <h3>Faculty:</h3>
     <ul> 
     ${teacherName.join('')} 
