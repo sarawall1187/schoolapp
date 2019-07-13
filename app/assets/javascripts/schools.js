@@ -52,6 +52,7 @@ class School {
   }
 
   formatShow() {
+    this.teachers.sort(function(a,b) {return a.grade_taught - b.grade_taught})
     let teacherName = this.teachers.map(teacher => {
 
         if (teacher.name !== null){
